@@ -7,26 +7,24 @@ namespace ProductManagementSystem
 {
     public class Boss : ObserverPerson
     {
-        // private string name;
-        // public string Name { get; set; }
-        // private string phone;
-        // public string Phone { get; set; }
-        // private string address;
-        // public string Address { get; set; }
         private string position;
         public string Position { get; set; }
-        public Boss(string name, string phone, string address) : base(name, phone, address)
+        public Boss(string name, string phone, string address, string position)
         {
             Name = name;
             Phone = phone;
             Address = address;
+            Position = position;
         }
-        public override void Update()
+        public override void Update(int quantityOfStore, string productName)
         {
-            System.Console.WriteLine("There are some changes in your system.Please check it!");
+            Console.Write("Hello Boss {0}, ", Name);
+            base.Update(quantityOfStore, productName);
         }
         public override void ShowInformation()
         {
         }
+        public override double CheckBill(Product product)
+        {return 0;}
     }
 }
